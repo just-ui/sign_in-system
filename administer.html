@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap_3.3.7.min.css">
+    <style>
+        .page2 .head .nav-pills {
+            padding: 10px;
+            font-weight: bold;
+            font-family: Times New Roman;
+        }
+
+        .shift-admin-ordinary {
+            margin: 5px;
+            background-color: lightblue;
+            box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
+            overflow: auto
+        }
+
+        .shift-admin-ordinary .form-inline {
+            border-bottom: 2px solid #ff6a00;
+            display: block;
+        }
+
+        .shift-admin-ordinary .form-inline .form-group {
+            display: inline-block;
+            width: 10em;
+            margin-right: 10px;
+        }
+
+        .shift-admin-ordinary .form-inline .btn-sm {}
+
+        .shift-admin-repalce {
+            margin: 5px;
+            background-color: rgb(214, 228, 183);
+            box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
+            overflow: auto
+        }
+
+        .shift-admin-chance {
+            margin: 5px;
+            background-color: rgb(235, 240, 197);
+            box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
+            overflow: auto
+        }
+    </style>
+</head>
+
+<body class="container-fluid" style="overflow:auto;padding:0px;">
+    <div class="page2" id="page2">
+        <div class="head">
+            <ul class="nav nav-pills">
+                <li id="member_login"><a href="member.html">队员登录</a></li>
+                <li class="active" id="administer_check"><a href="administer.html">班负管理</a></li>
+                <li id="master_center"><a href="master.html">管理员中心 </a></li>
+                <li><a href="#">信息空间</a></li>
+            </ul>
+        </div>
+        <!--无权限登录当前班次的提醒-->
+        <div id="administer_logAlert_fail" class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>用户无权限！</strong>您不是当前班次班负。
+        </div>
+        <!--用户是当前班次班负，尚未签到提醒-->
+        <div id="administer_logAlert_tips" class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>认证正确！</strong>请先前往队员登录界面签到，再进行当前班次管理。
+        </div>
+        <!--用户认证正确，且用户已经在该班次签到时，显示以下界面-->
+        <!--当前班次标题-->
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="now-shift">
+                    <label for="shift-now">当前班次:</label>
+                    <label for="shift-now">2021.11.27</label>
+                    <label for="shift-now">第十一周</label>
+                    <label for="shift-now">周六早班</label>
+                </div>
+            </div>
+        </div>
+        <br />
+        <!--所有签到信息-->
+        <div class="row">
+            <!--排班表中正常上班的同学正常签到-->
+            <div class="col-sm-2 col-sm-offset-5">
+                <label for="shift-admin-ordinary">正常签到</label>
+                <div class="shift-admin-ordinary">
+                    <form class="form-inline" role="form">
+                        <span class="form-group">
+                            张斌
+                        </span>
+                        <button type="submit" class="btn btn-sm">删除</button>
+                    </form>
+
+                    <form class="form-inline" role="form">
+                        <span class="form-group">
+                            蔡沛豪
+                        </span>
+                        <button type="submit" class="btn btn-sm">删除</button>
+                    </form>
+
+                    <form class="form-inline" role="form">
+                        <span class="form-group">
+                            纪浩天
+                        </span>
+                        <button type="submit" class="btn btn-sm">删除</button>
+                    </form>
+
+                    <form class="form-inline" role="form">
+                        <span class="form-group">
+                            夏文博
+                        </span>
+                        <button type="submit" class="btn btn-sm">删除</button>
+                    </form>
+
+                    <form class="form-inline" role="form">
+                        <span class="form-group">
+                            张梦龙
+                        </span>
+                        <button type="submit" class="btn btn-sm">删除</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--替班的同学签到-->
+            <div class="col-sm-4 col-sm-offset-4">
+                <label for="shift-admin-repalce">替班签到</label>
+                <div class="shift-admin-repalce">
+                    <form class="form-inline" role="form">
+                        <div class="form-group" style="margin-right:10px;">
+                            <p class="form-control-static">张斌</p>
+                            <p class="form-control-static">替</p>
+                            <p class="form-control-static">胡家祺</p>
+                        </div>
+                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">删除</button>
+                    </form>
+                    <ul class="nav nav-list">
+                        <li class="divider" style="border-bottom:2px solid #ff6a00"></li>
+                    </ul>
+                    <form class="form-inline" role="form">
+                        <div class="form-group" style="margin-right:10px;">
+                            <p class="form-control-static">蔡沛豪</p>
+                            <p class="form-control-static">替</p>
+                            <p class="form-control-static">胡家祺</p>
+                        </div>
+                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">删除</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--蹭班的同学签到-->
+            <div class="col-sm-4 col-sm-offset-4">
+                <label for="shift-admin-chance">蹭班签到</label>
+                <div class="shift-admin-chance">
+                    <form class="form-inline" role="form">
+                        <div class="form-group" style="margin-right:10px;">
+                            <p class="form-control-static">张斌</p>
+                        </div>
+                        <div class="form-group" style="margin-right:10px;">
+                            <p class="form-control-static">替</p>
+                        </div>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>请选择请假的同学</option>
+                            <option value="1">胡家祺</option>
+                            <option value="2">纪浩天</option>
+                        </select>
+                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">删除</button>
+                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">提交</button>
+                    </form>
+                    <ul class="nav nav-list">
+                        <li class="divider" style="border-bottom:2px solid #ff6a00"></li>
+                    </ul>
+                    <form class="form-inline" role="form">
+                        <div class="form-group" style="margin-right:10px;">
+                            <p class="form-control-static">蔡沛豪</p>
+                        </div>
+                        <div class="form-group" style="margin-right:10px;">
+                            <p class="form-control-static">替</p>
+                        </div>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>请选择请假的同学</option>
+                            <option value="1">胡家祺</option>
+                            <option value="2">纪浩天</option>
+                        </select>
+                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">删除</button>
+                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--请假名单-->
+            <div class="col-sm-2 col-sm-offset-5">
+                <label for="shift-admin-leaving">请假名单</label>
+                <div class="shift-admin-leaving"
+                    style="margin:5px;background-color:lightblue;box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.25); overflow:auto">
+                    <form class="form-inline" role="form">
+                        <div class="form-group" style="margin-right:10px;">
+                            <p class="form-control-static">胡家祺</p>
+                        </div>
+                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">删除</button>
+                    </form>
+                    <ul class="nav nav-list">
+                        <li class="divider" style="border-bottom:2px solid #ff6a00"></li>
+                    </ul>
+                    <form class="form-inline" role="form">
+                        <div class="form-group" style="margin-right:10px;">
+                            <p class="form-control-static">纪浩天</p>
+                        </div>
+                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">删除</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--未签到名单-->
+            <div class="col-sm-2 col-sm-offset-5">
+                <label for="shift-admin-absent">未签到名单</label>
+                <div class="shift-admin-absent"
+                    style="margin:5px;box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.25);height:auto;overflow:auto">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center">姓名</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">张斌</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">蔡沛豪</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+        <ul class="nav nav-list">
+            <li class="divider" style="border-bottom:2px dashed #808080"></li>
+        </ul>
+        <div class="row">
+            <!--最终签到名单-->
+            <div class="col-sm-4 col-sm-offset-4">
+                <label for="shift-admin-final">最终签到名单</label>
+                <div class="shift-admin-final"
+                    style="margin:5px;box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.25);height:auto;overflow:auto">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">姓名</th>
+                                <th class="text-center">学号</th>
+                            </tr>
+                        </thead>
+                        <tbody style="background-color:lightblue">
+                            <tr>
+                                <td class="text-center">张斌</td>
+                                <td class="text-center">001</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">蔡沛豪</td>
+                                <td class="text-center">002</td>
+                            </tr>
+                        </tbody>
+                        <tbody style="background-color:lightpink">
+                            <tr>
+                                <td class="text-center">张斌</td>
+                                <td class="text-center">001</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">蔡沛豪</td>
+                                <td class="text-center">002</td>
+                            </tr>
+                        </tbody>
+                        <tbody style="background-color:lightgray">
+                            <tr>
+                                <td class="text-center">张斌</td>
+                                <td class="text-center">001</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">蔡沛豪</td>
+                                <td class="text-center">002</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bootstrap/js/jquery-2.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

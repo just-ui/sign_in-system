@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="module" src="js/sign_in.js"></script>
+    <style>
+        .page1 .headline .title {
+            padding: 15px;
+            font-weight: bold;
+            font-size: 24px;
+            color: white;
+            font-family: Times New Roman;
+        }
+        .page1 .text{
+            font-weight:bold;
+            font-size:18px;
+        }
+        .btn {
+            background-color: rgb(128, 128, 128);
+            color: rgba(220, 220, 220, 0.80);
+            box-shadow: 1px 1px 5px 5px rgba(255,255,255,0.25);
+        }
+        .page1.login-btn {
+            margin-left: 60px;
+            text-align: center;          
+        }
+    </style>
+</head>
+
+<body class="container-fluid" style="overflow:auto;padding:0px;">
+    <div class="page1" id="page1" style="height:580px;background-image: url('images/front2.jpg');">
+        <div class="headline" style="height:70px; background-color:rgba(35,38,46,0.9)">
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-5">
+                    <div class="title text-center">
+                        文图签到系统
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content" style="margin-top:150px;">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4" style="height:120px;background-color:rgba(79, 110, 128, 0.40);">
+                    <div class="user_number" style="margin:20px;margin-left:60px;">
+                        <span class="text">
+                            学号
+                        </span>
+                        <input id="student_id" class="input" placeholder="请输入">
+                    </div>
+                    <div class="user_name" style="margin:20px;margin-left:60px;">
+                        <span class="text">
+                            密码
+                        </span>
+                        <input id="password" type="password" class="input" placeholder="请输入">
+                    </div>
+                </div>
+                <div id="i_button" class="col-sm-2 col-sm-offset-5" style="margin-top:20px;">
+                    <a class="btn btn-lg login-btn" href="#" >
+                        <span class="glyphicon glyphicon-log-in"></span> Log in
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bootstrap/js/jquery-2.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery-mousewheel-master/jquery.mousewheel.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>
