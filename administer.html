@@ -14,6 +14,12 @@
             font-family: Times New Roman;
         }
 
+        /*按钮属性栏*/
+        .btn-sm {
+            border-radius: 1em;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+        }
+
         /*表单属性栏*/
         .form-inline {
             border-bottom: 2px solid #ff6a00;
@@ -23,7 +29,8 @@
         /*正常签到栏*/
         .shift-admin-ordinary {
             margin: 5px;
-            background-color: lightblue;
+            margin-bottom: 20px;
+            background-color: rgb(173, 216, 230);
             box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
             overflow: auto
         }
@@ -41,6 +48,7 @@
         /*替班签到栏*/
         .shift-admin-repalce {
             margin: 5px;
+            margin-bottom: 20px;
             background-color: rgb(214, 228, 183);
             box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
             overflow: auto
@@ -55,6 +63,7 @@
         /*蹭班签到栏*/
         .shift-admin-chance {
             margin: 5px;
+            margin-bottom: 20px;
             background-color: rgb(214, 188, 159);
             box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
             overflow: auto
@@ -68,7 +77,8 @@
         /*请假名单栏*/
         .shift-admin-leaving {
             margin: 5px;
-            background-color: lightblue;
+            margin-bottom: 20px;
+            background-color: rgb(230, 180, 173);
             box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
             overflow: auto
         }
@@ -260,14 +270,22 @@
                         <thead>
                             <tr>
                                 <th class="text-center">姓名</th>
+                                <th class="text-center">手机</th>
+                                <th class="text-center">操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td class="text-center">张斌</td>
+                                <td class="text-center">18801139203</td>
+                                <td class="text-center"><button type="submit" class="btn btn-sm" name="vacate"
+                                        id="vacate">请假</td>
                             </tr>
                             <tr>
                                 <td class="text-center">蔡沛豪</td>
+                                <td class="text-center">18801139203</td>
+                                <td class="text-center"><button type="submit" class="btn btn-sm" name="vacate"
+                                        id="vacate">请假</td>
                             </tr>
                         </tbody>
                     </table>
@@ -292,7 +310,7 @@
                                 <th class="text-center">学号</th>
                             </tr>
                         </thead>
-                        <tbody style="background-color:lightblue">
+                        <tbody style="background-color:rgb(173, 216, 230)">
                             <tr>
                                 <td class="text-center">张斌</td>
                                 <td class="text-center">001</td>
@@ -302,7 +320,7 @@
                                 <td class="text-center">002</td>
                             </tr>
                         </tbody>
-                        <tbody style="background-color:lightpink">
+                        <tbody style="background-color:rgb(214, 228, 183)">
                             <tr>
                                 <td class="text-center">张斌</td>
                                 <td class="text-center">001</td>
@@ -312,7 +330,7 @@
                                 <td class="text-center">002</td>
                             </tr>
                         </tbody>
-                        <tbody style="background-color:lightgray">
+                        <tbody style="background-color:rgb(214, 188, 159)">
                             <tr>
                                 <td class="text-center">张斌</td>
                                 <td class="text-center">001</td>
