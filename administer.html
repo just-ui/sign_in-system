@@ -104,11 +104,24 @@
             height: auto;
             overflow: auto
         }
+
+        .shift-admin-final .member_ordinary {
+            background-color: rgb(173, 216, 230)
+        }
+
+        .shift-admin-final .member_replace {
+            background-color: rgb(214, 228, 183)
+        }
+
+        .shift-admin-final .member_chance {
+            background-color: rgb(214, 188, 159)
+        }
     </style>
 </head>
 
 <body class="container-fluid" style="overflow:auto;padding:0px;">
     <div class="page2" id="page2">
+        <!--顶部导航栏-->
         <div class="head">
             <ul class="nav nav-pills">
                 <li id="member_login"><a href="member.html">队员登录</a></li>
@@ -130,7 +143,7 @@
         <!--用户认证正确，且用户已经在该班次签到时，显示以下界面-->
         <!--当前班次标题-->
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-4">
+            <div class="col-sm-5 col-sm-offset-4">
                 <div class="now-shift">
                     <label for="shift-now">当前班次:</label>
                     <label for="shift-now">2021.11.27</label>
@@ -263,7 +276,7 @@
         </div>
         <!--未签到名单-->
         <div class="row">
-            <div class="col-sm-3 col-sm-offset-4">
+            <div class="col-sm-4 col-sm-offset-4">
                 <label for="shift-admin-absent">未签到名单</label>
                 <div class="shift-admin-absent">
                     <table class="table table-striped">
@@ -300,44 +313,86 @@
         <br />
         <!--最终签到名单-->
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-4">
+            <div class="col-sm-6 col-sm-offset-3">
                 <label for="shift-admin-final">最终签到名单</label>
                 <div class="shift-admin-final">
                     <table class="table">
                         <thead>
                             <tr>
+                                <th class="text-center">
+                                    <input type="checkbox" onclick="swapCheck()"> 全选
+                                </th>
                                 <th class="text-center">姓名</th>
                                 <th class="text-center">学号</th>
+                                <th class="text-center">早退</th>
+                                <th class="text-center">加班</th>
+                                <th class="text-center">优秀队员</th>
                             </tr>
                         </thead>
-                        <tbody style="background-color:rgb(173, 216, 230)">
+                        <tbody class="member_ordinary">
                             <tr>
+                                <td class="text-center">
+                                    <input type="checkbox" name="zhangbin" id="zhangbin">
+                                </td>
                                 <td class="text-center">张斌</td>
                                 <td class="text-center">001</td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
                             </tr>
                             <tr>
+                                <td class="text-center">
+                                    <input type="checkbox" name="caipeihao" id="caipeihao">
+                                </td>
                                 <td class="text-center">蔡沛豪</td>
                                 <td class="text-center">002</td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
                             </tr>
                         </tbody>
-                        <tbody style="background-color:rgb(214, 228, 183)">
+                        <tbody class="member_replace">
                             <tr>
-                                <td class="text-center">张斌</td>
-                                <td class="text-center">001</td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="hujiaqi" id="hujiaqi">
+                                </td>
+                                <td class="text-center">胡家祺</td>
+                                <td class="text-center">003</td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
                             </tr>
                             <tr>
-                                <td class="text-center">蔡沛豪</td>
-                                <td class="text-center">002</td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="jihaotian" id="jihaotian">
+                                </td>
+                                <td class="text-center">纪浩天</td>
+                                <td class="text-center">004</td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
                             </tr>
                         </tbody>
-                        <tbody style="background-color:rgb(214, 188, 159)">
+                        <tbody class="member_chance">
                             <tr>
-                                <td class="text-center">张斌</td>
-                                <td class="text-center">001</td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="xiawenbo" id="xiawenbo">
+                                </td>
+                                <td class="text-center">夏文博</td>
+                                <td class="text-center">005</td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
                             </tr>
                             <tr>
-                                <td class="text-center">蔡沛豪</td>
-                                <td class="text-center">002</td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="zhangmenglong" id="zhangmenglong">
+                                </td>
+                                <td class="text-center">张梦龙</td>
+                                <td class="text-center">006</td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -347,8 +402,22 @@
     </div>
     <script src="bootstrap/js/jquery-2.1.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script>
-
+    <script type="text/javascript">
+        //checkbox 全选/取消全选
+        var isCheckAll = false;
+        function swapCheck() {
+            if (isCheckAll) {
+                $("input[type='checkbox']").each(function () {
+                    this.checked = false;
+                });
+                isCheckAll = false;
+            } else {
+                $("input[type='checkbox']").each(function () {
+                    this.checked = true;
+                });
+                isCheckAll = true;
+            }
+        }
     </script>
 </body>
 
