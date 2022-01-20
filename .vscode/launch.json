@@ -8,7 +8,7 @@
             "type": "pwa-msedge",
             "request": "launch",
             "name": "Open administer.html",
-            "file": "e:\\zhangbin_private\\daily_life\\勤工俭学\\文图助理分队\\网页设计\\administer.html"
+            "file": "E:\\zhangbin_private\\Git_projects\\sign_in-system\\administer.html"
         },
         {
             "name": "Launch Microsoft Edge and open the Edge DevTools",

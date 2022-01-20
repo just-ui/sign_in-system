@@ -16,6 +16,7 @@
 
         /*按钮属性栏*/
         .btn-sm {
+            font-weight: 600;
             border-radius: 1em;
             border: 1px solid rgba(0, 0, 0, 0.5);
         }
@@ -115,6 +116,36 @@
 
         .shift-admin-final .member_chance {
             background-color: rgb(214, 188, 159)
+        }
+
+        .shift-admin-final .form-inline {
+            margin-top: 30px;
+            border: none;
+        }
+
+        .shift-admin-final .form-group {
+            margin-left: 50px;
+            display: inline-block;
+        }
+
+        .shift-admin-final .form-group .form-select {
+            width: 15em;
+        }
+
+        .shift-admin-final .form-group .btn-sm {
+            border-radius: 2em;
+            background-color: rgba(52, 51, 126, 0.3);
+            box-shadow: 1px 1px 2px 2px rgba(40, 17, 92, 0.25);
+        }
+
+        .shift-admin-final .form-group .input-group {
+            width: 15em;
+        }
+
+        .shift-admin-final .final-check {
+            margin-top: 20px;
+            margin-left: 150px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -291,14 +322,12 @@
                             <tr>
                                 <td class="text-center">张斌</td>
                                 <td class="text-center">18801139203</td>
-                                <td class="text-center"><button type="submit" class="btn btn-sm" name="vacate"
-                                        id="vacate">请假</td>
+                                <td class="text-center"><button type="submit" class="btn btn-sm">请假</td>
                             </tr>
                             <tr>
                                 <td class="text-center">蔡沛豪</td>
                                 <td class="text-center">18801139203</td>
-                                <td class="text-center"><button type="submit" class="btn btn-sm" name="vacate"
-                                        id="vacate">请假</td>
+                                <td class="text-center"><button type="submit" class="btn btn-sm">请假</td>
                             </tr>
                         </tbody>
                     </table>
@@ -324,8 +353,8 @@
                                 </th>
                                 <th class="text-center">姓名</th>
                                 <th class="text-center">学号</th>
-                                <th class="text-center">早退</th>
                                 <th class="text-center">加班</th>
+                                <th class="text-center">早退</th>
                                 <th class="text-center">优秀队员</th>
                             </tr>
                         </thead>
@@ -396,6 +425,40 @@
                             </tr>
                         </tbody>
                     </table>
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-sm" onclick="final_Addtime()">加班</button>
+                            <select class="form-select" id="add-time" aria-label="Default select example">
+                                <option selected value="0">加班时长</option>
+                                <option value="15min">15min</option>
+                                <option value="30min">30min</option>
+                                <option value="45min">45min</option>
+                                <option value="1h">1h</option>
+                                <option value="1h15min">1h15min</option>
+                                <option value="1h30min">1h30min</option>
+                                <option value="1h45min">1h45min</option>
+                                <option value="2h">2h</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-sm" onclick="final_Excellent()">优秀队员</button>
+                        </div>
+                    </form>
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-sm" onclick="final_Leave()">早退</button>
+                            <span class="input-group input-group-sm">
+                                <input type="number" id="leave-time" class="form-control"
+                                    oninput="if(value>120)value=120;if(value<0)value=0" placeholder="请输入0-120的数字">
+                                <span class="input-group-addon">min</span>
+                            </span>
+                        </div>
+                    </form>
+                    <br />
+                    <div class="final-check">
+                        <input type="text" placeholder="请输入当前班负姓名">
+                        <button type="button" class="btn">确定最终名单</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -416,6 +479,53 @@
                     this.checked = true;
                 });
                 isCheckAll = true;
+            }
+        }
+
+        //最终签到名单加班按钮
+        var addtime = "0";
+        function final_Addtime() {
+            addtime = $("#add-time option:selected").val();
+            if (addtime != "0") {
+                var index = $("input[type='checkbox']").length;
+                for (var i = 1; i < index; i++) {
+                    var checkbox_pos = $("input[type='checkbox']").eq(i);
+                    if (checkbox_pos.is(':checked')) {
+                        checkbox_pos.parent().next().next().next().text(addtime);
+                    } else {
+                        checkbox_pos.parent().next().next().next().text(null);
+                    }
+                }
+            }
+        }
+
+        //最终签到名单早退按钮
+        var leavetime = 0;
+        function final_Leave() {
+            leavetime = $("#leave-time").val();
+            if (leavetime != 0) {
+                var index = $("input[type='checkbox']").length;
+                for (var i = 1; i < index; i++) {
+                    var checkbox_pos = $("input[type='checkbox']").eq(i);
+                    if (checkbox_pos.is(':checked')) {
+                        checkbox_pos.parent().next().next().next().next().text(leavetime + 'min');
+                    } else {
+                        checkbox_pos.parent().next().next().next().next().text(null);
+                    }
+                }
+            }
+        }
+
+        //最终签到名单优秀队员按钮
+        function final_Excellent() {
+            var index = $("input[type='checkbox']").length;
+            for (var i = 1; i < index; i++) {
+                var checkbox_pos = $("input[type='checkbox']").eq(i);
+                if (checkbox_pos.is(':checked')) {
+                    checkbox_pos.parent().next().next().next().next().next().text('优秀');
+                } else {
+                    checkbox_pos.parent().next().next().next().next().next().text(null);
+                }
             }
         }
     </script>
