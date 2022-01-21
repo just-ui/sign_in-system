@@ -147,6 +147,14 @@
             margin-left: 150px;
             margin-bottom: 10px;
         }
+
+        .shift-admin-final .final-check .btn {
+            border-radius: 1em;
+            border: 2px solid rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+            background-color: rgba(233, 96, 96, 0.5);
+            box-shadow: 1px 1px 5px 5px rgba(143, 18, 9, 0.25);
+        }
     </style>
 </head>
 
@@ -322,12 +330,16 @@
                             <tr>
                                 <td class="text-center">张斌</td>
                                 <td class="text-center">18801139203</td>
-                                <td class="text-center"><button type="submit" class="btn btn-sm">请假</td>
+                                <td class="text-center">
+                                    <form><button type="submit" class="btn btn-sm">请假</form>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="text-center">蔡沛豪</td>
                                 <td class="text-center">18801139203</td>
-                                <td class="text-center"><button type="submit" class="btn btn-sm">请假</td>
+                                <td class="text-center">
+                                    <form><button type="submit" class="btn btn-sm">请假</form>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -455,10 +467,10 @@
                         </div>
                     </form>
                     <br />
-                    <div class="final-check">
+                    <form class="final-check">
                         <input type="text" placeholder="请输入当前班负姓名">
-                        <button type="button" class="btn">确定最终名单</button>
-                    </div>
+                        <button type="submit" class="btn">确定最终名单</button>
+                    </form>
                 </div>
             </div>
         </div>
