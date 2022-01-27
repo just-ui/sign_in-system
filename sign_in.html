@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title></title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap_3.3.7.min.css">
+    <link rel="stylesheet" href="bootstrap-3.4.1/css/bootstrap.min.css">
     <style>
         .page1 {
             height: 580px;
@@ -25,11 +25,6 @@
             font-family: Times New Roman;
         }
 
-        .page1 .text {
-            font-weight: bold;
-            font-size: 18px;
-        }
-
         .content {
             margin-top: 200px;
         }
@@ -37,6 +32,7 @@
         .content .register {
             height: 120px;
             background-color: rgba(79, 110, 128, 0.40);
+            margin-bottom: 20px;
         }
 
         .content .register .user_number {
@@ -61,8 +57,8 @@
 
 <body class="container-fluid">
     <div class="page1" id="page1">
-        <div class="headline">
-            <div class="row">
+        <div class="row">
+            <div class="headline">
                 <div class="col-sm-4 col-sm-offset-4">
                     <div class="title text-center">
                         文图签到系统
@@ -70,32 +66,29 @@
                 </div>
             </div>
         </div>
-        <div class="content">
-            <div class="row">
+
+        <div class="row">
+            <div class="content">
                 <div class="col-sm-4 col-sm-offset-4 register">
                     <div class="user_number">
-                        <span class="text">
-                            学号
-                        </span>
-                        <input class="input" placeholder="请输入">
+                        <label for="username">学号</label>
+                        <input type="number" class="username" placeholder="请输入">
                     </div>
                     <div class="user_name">
-                        <span class="text">
-                            姓名
-                        </span>
-                        <input class="input" placeholder="请输入">
+                        <label for="password">密码</label>
+                        <input type="password" class="password" placeholder="请输入">
                     </div>
                 </div>
-                <div class="col-sm-2 col-sm-offset-5" style="margin-top:20px;">
+                <div class="col-sm-3 col-sm-offset-5">
                     <button class="btn btn-lg login-btn" href="#">
-                        <span class="glyphicon glyphicon-log-in"></span> Log in
+                        <span class="glyphicon glyphicon-log-in"></span> 登录
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    <script src="bootstrap/js/jquery-2.1.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3.4.1/js/jquery-2.1.1.min.js"></script>
+    <script src="bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script>
 
     </script>
