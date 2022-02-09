@@ -23,56 +23,93 @@
             font-family: Times New Roman;
         }
 
-        /*今后班次格式*/
-        .shift-week {
-            margin: 5px;
-            box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
-            height: 100px;
-            overflow: auto;
-        }
-
-        /*正常、蹭班*/
-        .shift-week .catalog {
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-
-        .shift-week .catalog .common {
-            background-color: palegreen;
-        }
-
-        .shift-week .catalog .else {
-            background-color: palegoldenrod;
-        }
-
-        /*班负、队员*/
-        .shift-week .position {
-            margin-right: 10px;
-        }
-
-        .shift-week .position .admin {
-            background-color: palevioletred;
-        }
-
-        .shift-week .position .member {
-            background-color: paleturquoise;
+        /*按钮属性栏*/
+        .btn-sm {
+            font-weight: 600;
+            border-radius: 1em;
+            border: 1px solid rgba(0, 0, 0, 0.5);
         }
 
         /*日期*/
-        .shift-week .data {
+        .data {
             width: 8rem;
-            margin-right: 10px;
+            margin-right: 5px;
         }
 
         /*班次*/
-        .shift-week .period {
-            width: 4em;
-            margin-right: 10px;
+        .period {
+            width: 8rem;
+            margin-right: 5px;
         }
 
-        /*签到按钮*/
-        .shift-week .sign-in {
+        /*正常、蹭班标志*/
+        .catalog {
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.8);
+        }
+
+        .catalog .common {
+            background-color: palegreen;
+        }
+
+        .catalog .else {
+            background-color: palegoldenrod;
+        }
+
+        /*班负、队员身份标志*/
+        .position {
+            margin-right: 5px;
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.8);
+        }
+
+        .position .admin {
+            background-color: palevioletred;
+        }
+
+        .position .member {
+            background-color: paleturquoise;
+        }
+
+        /*当前班次模块*/
+        .shift-now {
+            margin: 5px;
+            box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
+            overflow: auto;
+        }
+
+        /*当前班次表单*/
+        .shift-now .form-inline .form-group {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        /*当前班次按钮*/
+        .shift-now .register {
             margin: 2px;
+        }
+
+
+        /*今后班次模块*/
+        .shift-week {
+            margin: 5px;
+            box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
+            height: 135px;
+            overflow: auto;
+        }
+
+        /*表单属性栏*/
+        .shift-week .form-inline {
+            border-bottom: 2px solid rgba(33, 3, 48, 0.8);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .shift-week .form-inline .form-group {
+            display: inline-block;
+            margin-right: 20px;
         }
 
         /*请假按钮*/
@@ -95,45 +132,35 @@
             margin-right: 10px;
         }
 
-        /*蹭班班次*/
-        .shift-add {
-            margin: 5px;
-            box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
-            height: 40px;
-            overflow: auto;
-        }
-
-        /*蹭班日期*/
-        .shift-add .data {
-            width: 8rem;
-            margin-right: 10px;
-        }
-
-        /*蹭班班次*/
-        .shift-add .period {
-            width: 4em;
-            margin-right: 10px;
-        }
-
-        /*蹭班按钮*/
-        .shift-add .add {
-            margin: 2px;
-        }
-
-        /*替班班次*/
+        /*替班模块*/
         .shift-replace {
             margin: 5px;
             box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.25);
-            height: 80px;
-            overflow: auto
+            height: 90px;
+            overflow: auto;
         }
 
-        .shift-replace .data {}
+        .shift-replace .form-inline {
+            border-bottom: 2px solid rgba(3, 48, 38, 0.8);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .shift-replace .form-inline .form-group {
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        .shift-replace .name {
+            width: 4rem;
+            margin-right: 5px;
+        }
     </style>
 </head>
 
 <body class="container-fluid">
     <div class="page1" id="page1">
+        <!--顶部导航栏-->
         <div class="head">
             <ul class="nav nav-pills">
                 <li class="active" id="member_login"><a href="member.html">队员登录</a></li>
@@ -142,6 +169,41 @@
                 <li><a href="#">信息空间</a></li>
             </ul>
         </div>
+        <!--当前班次模块-->
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <label for="shift-now">当前班次</label>
+                <div class="shift-now">
+                    <form class="form-inline" role="form">
+                        <span class="form-group">
+                            <span class="form-control-static catalog">
+                                <span class="common">正常</span>
+                            </span>
+                            <span class="form-control-static position">
+                                <span class="member">队员</span>
+                            </span>
+                            <span class="form-control-static data">2021.10.18</span>
+                            <span class="form-control-static period">周一晚二</span>
+                        </span>
+                        <button type="submit" class="btn btn-sm register">蹭班</button>
+                    </form>
+                    <form class="form-inline" role="form">
+                        <span class="form-group">
+                            <span class="form-control-static catalog">
+                                <span class="common">正常</span>
+                            </span>
+                            <span class="form-control-static position">
+                                <span class="member">队员</span>
+                            </span>
+                            <span class="form-control-static data">2021.10.18</span>
+                            <span class="form-control-static period">周一晚二</span>
+                        </span>
+                        <button type="submit" class="btn btn-sm register">到岗</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
         <!--今后班次模块-->
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
@@ -149,188 +211,149 @@
                 <div class="shift-week">
                     <!--情况1：当前班次-->
                     <form class="form-inline" role="form">
-                        <div class="form-group catalog">
-                            <span class="form-control-static common">正常</span>
-                        </div>
-                        <div class="form-group position">
-                            <span class="form-control-static admin">班负</span>
-                        </div>
-                        <div class="form-group data">
-                            <span class="form-control-static">2021.10.25</span>
-                        </div>
-                        <div class="form-group period">
-                            <span class="form-control-static">周一早班</span>
-                        </div>
-                        <button type="submit" class="btn btn-default sign-in">到岗</button>
-                        <button type="submit" class="btn btn-default leave">请假</button>
-                        <button type="submit" class="btn btn-default replace" disabled="disabled">求替</button>
-                        <div class="form-group">
+                        <span class="form-group">
+                            <span class="form-control-static catalog">
+                                <span class="common">正常</span>
+                            </span>
+                            <span class="form-control-static position">
+                                <span class="admin">班负</span>
+                            </span>
+                            <span class="form-control-static data">2021.10.25</span>
+                            <span class="form-control-static period">周一早班</span>
+                        </span>
+                        <button type="submit" class="btn btn-sm leave">请假</button>
+                        <button type="submit" class="btn btn-sm replace" disabled="disabled">求替</button>
+                        <span class="form-group">
                             <label class="sr-only" for="name">求替人</label>
                             <input type="text" class="form-control replace-input" id="name" placeholder="求替人姓名">
-                        </div>
+                        </span>
                     </form>
                     <!--情况2：之后班次-->
                     <form class="form-inline" role="form">
-                        <div class="form-group catalog">
-                            <span class="form-control-static common">正常</span>
-                        </div>
-                        <div class="form-group position">
-                            <span class="form-control-static member">队员</span>
-                        </div>
-                        <div class="form-group data">
-                            <span class="form-control-static">2021.10.25</span>
-                        </div>
-                        <div class="form-group period">
-                            <span class="form-control-static">周一午班</span>
-                        </div>
-                        <button type="submit" class="btn btn-default sign-in" disabled="disabled">到岗</button>
-                        <button type="submit" class="btn btn-default leave">请假</button>
-                        <button type="submit" class="btn btn-default replace" disabled="disabled">求替</button>
-                        <div class="form-group">
+                        <span class="form-group">
+                            <span class="form-control-static catalog">
+                                <span class="common">正常</span>
+                            </span>
+                            <span class="form-control-static position">
+                                <span class="member">队员</span>
+                            </span>
+                            <span class="form-control-static data">2021.10.25</span>
+                            <span class="form-control-static period">周一午班</span>
+                        </span>
+                        <button type="submit" class="btn btn-sm leave">请假</button>
+                        <button type="submit" class="btn btn-sm replace" disabled="disabled">求替</button>
+                        <span class="form-group">
                             <label class="sr-only" for="name">求替人</label>
                             <input type="text" class="form-control replace-input" id="name" placeholder="求替人姓名">
-                        </div>
+                        </span>
                     </form>
                     <!--情况3：班次求替后等待确定-->
                     <form class="form-inline" role="form">
-                        <div class="form-group catalog">
-                            <span class="form-control-static common">正常</span>
-                        </div>
-                        <div class="form-group position">
-                            <span class="form-control-static member">队员</span>
-                        </div>
-                        <div class="form-group data">
-                            <span class="form-control-static">2021.10.25</span>
-                        </div>
-                        <div class="form-group period">
-                            <span class="form-control-static">周一晚二</span>
-                        </div>
-                        <button type="submit" class="btn btn-default sign-in" disabled="disabled">到岗</button>
-                        <button type="submit" class="btn btn-default leave">请假</button>
-                        <button type="submit" class="btn btn-default replace">求替</button>
-                        <div class="form-group">
+                        <span class="form-group">
+                            <span class="form-control-static catalog">
+                                <span class="common">正常</span>
+                            </span>
+                            <span class="form-control-static position">
+                                <span class="member">队员</span>
+                            </span>
+                            <span class="form-control-static data">2021.10.25</span>
+                            <span class="form-control-static period">周一晚二</span>
+                        </span>
+                        <button type="submit" class="btn btn-sm leave">请假</button>
+                        <button type="submit" class="btn btn-sm replace">求替</button>
+                        <span class="form-group">
                             <label class="sr-only" for="name">求替人</label>
                             <input type="text" class="form-control replace-input" id="name" placeholder="蔡沛豪">
-                        </div>
-                        <div class="form-group comment">
-                            <span class="form-control-static">备注：等待对方确定中...</span>
-                        </div>
+                        </span>
+                        <span class="form-group">
+                            <span class="form-control-static comment">备注：等待对方确定中...</span>
+                        </span>
                     </form>
                     <!--情况4：班次求替被拒绝-->
                     <form class="form-inline" role="form">
-                        <div class="form-group catalog">
-                            <span class="form-control-static common">正常</span>
-                        </div>
-                        <div class="form-group position">
-                            <span class="form-control-static member">队员</span>
-                        </div>
-                        <div class="form-group data">
-                            <span class="form-control-static">2021.10.25</span>
-                        </div>
-                        <div class="form-group period">
-                            <span class="form-control-static">周一晚二</span>
-                        </div>
-                        <button type="submit" class="btn btn-default sign-in" disabled="disabled">到岗</button>
-                        <button type="submit" class="btn btn-default leave">请假</button>
-                        <button type="submit" class="btn btn-default replace">求替</button>
-                        <div class="form-group">
+                        <span class="form-group">
+                            <span class="form-control-static catalog">
+                                <span class="common">正常</span>
+                            </span>
+                            <span class="form-control-static position">
+                                <span class="member">队员</span>
+                            </span>
+                            <span class="form-control-static data">2021.10.25</span>
+                            <span class="form-control-static period">周一晚二</span>
+                        </span>
+                        <button type="submit" class="btn btn-sm leave">请假</button>
+                        <button type="submit" class="btn btn-sm replace">求替</button>
+                        <span class="form-group">
                             <label class="sr-only" for="name">求替人</label>
                             <input type="text" class="form-control replace-input" id="name" placeholder="蔡沛豪">
-                        </div>
-                        <div class="form-group comment">
-                            <span class="form-control-static">备注：对方已拒绝你的请求，请注意！</span>
-                        </div>
+                        </span>
+                        <span class="form-group">
+                            <span class="form-control-static comment">备注：对方已拒绝你的请求，请注意！</span>
+                        </span>
                     </form>
                     <!--情况5：班次标签由正常改为替班，但是按钮情况仍有上面4种，这里只列举一种-->
                     <form class="form-inline" role="form">
-                        <div class="form-group catalog">
-                            <p class="form-control-static else">替班</p>
-                        </div>
-                        <div class="form-group position">
-                            <p class="form-control-static admin">班负</p>
-                        </div>
-                        <div class="form-group data">
-                            <p class="form-control-static">2021.10.25</p>
-                        </div>
-                        <div class="form-group period">
-                            <p class="form-control-static">周一晚二</p>
-                        </div>
-                        <button type="submit" class="btn btn-default sign-in" disabled="disabled">到岗</button>
-                        <button type="submit" class="btn btn-default leave">请假</button>
-                        <button type="submit" class="btn btn-default replace" disabled="disabled">求替</button>
-                        <div class="form-group">
+                        <span class="form-group">
+                            <span class="form-control-static catalog">
+                                <span class="else">替班</span>
+                            </span>
+                            <span class="form-control-static position">
+                                <span class="admin">班负</span>
+                            </span>
+                            <span class="form-control-static data">2021.10.25</span>
+                            <span class="form-control-static period">周一晚二</span>
+                        </span>
+                        <button type="submit" class="btn btn-sm leave">请假</button>
+                        <button type="submit" class="btn btn-sm replace" disabled="disabled">求替</button>
+                        <span class="form-group">
                             <label class="sr-only" for="name">求替人</label>
                             <input type="text" class="form-control replace-input" id="name" placeholder="求替人姓名">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!--蹭班模块-->
-        <div class="row">
-            <div class="col-sm-4 col-sm-offset-4">
-                <label for="shift-add">蹭班</label>
-                <div class="shift-add">
-                    <form class="form-inline" role="form">
-                        <div class="form-group data">
-                            <span class="form-control-static">2021.10.26</span>
-                        </div>
-                        <div class="form-group period">
-                            <span class="form-control-static">周一晚二</span>
-                        </div>
-                        <button type="submit" class="btn btn-default pull-right add">蹭班</button>
+                        </span>
                     </form>
                 </div>
             </div>
         </div>
         <!--替班模块-->
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-10 col-sm-offset-1">
                 <label for="shift-replace">替班信息</label>
                 <div class="shift-replace">
                     <form class="form-inline" role="form">
-                        <div class="form-group data" style="margin-right:10px;">
-                            <p class="form-control-static">2021.11.1</p>
-                        </div>
-                        <div class="form-group" style="margin-right:10px;">
-                            <p class="form-control-static">周一早班 </p>
-                        </div>
-                        <div class="form-group" style="margin-right:10px;">
+                        <span class="form-group">
+                            <span class="form-control-static data">2021.11.01</span>
+                            <span class="form-control-static period">周一早班 </span>
+                        </span>
+                        <span class="form-group">
                             <label for="name">请求人:</label>
-                            <p class="form-control-static">张斌</p>
-                        </div>
-                        <div class="form-group" style="margin-right:10px;background-color:palevioletred">
-                            <p class="form-control-static">班负</p>
-                        </div>
-                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">拒绝</button>
-                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">接受</button>
+                            <span class="form-control-static name">张斌</span>
+                            <span class="form-control-static position">
+                                <span class="admin">班负</span>
+                            </span>
+                        </span>
+                        <button type="submit" class="btn btn-sm">接受</button>
+                        <button type="submit" class="btn btn-sm">拒绝</button>
                     </form>
-                    <ul class="nav nav-list">
-                        <li class="divider" style="border-bottom:2px solid #ff6a00"></li>
-                    </ul>
                     <form class="form-inline" role="form">
-                        <div class="form-group" style="margin-right:10px;">
-                            <p class="form-control-static">2021.11.27</p>
-                        </div>
-                        <div class="form-group" style="margin-right:10px;">
-                            <p class="form-control-static">周六早班 </p>
-                        </div>
-                        <div class="form-group" style="margin-right:10px;">
+                        <span class="form-group">
+                            <span class="form-control-static data">2021.11.27</span>
+                            <span class="form-control-static period">周六早班 </span>
+                        </span>
+                        <span class="form-group">
                             <label for="name">请求人:</label>
-                            <p class="form-control-static">张斌</p>
-                        </div>
-                        <div class="form-group" style="margin-right:10px;background-color:paleturquoise">
-                            <p class="form-control-static">队员</p>
-                        </div>
-                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">拒绝</button>
-                        <button type="submit" class="btn btn-default pull-right" style="margin:2px;">接受</button>
+                            <span class="form-control-static name">张斌</span>
+                            <span class="form-control-static position">
+                                <span class="member">队员</span>
+                            </span>
+                        </span>
+                        <button type="submit" class="btn btn-sm">接受</button>
+                        <button type="submit" class="btn btn-sm">拒绝</button>
                     </form>
                 </div>
             </div>
         </div>
         <!--到岗记录模块-->
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-10 col-sm-offset-1">
                 <label for="shift-arrived">到岗记录</label>
                 <div class="shift-ordinary"
                     style="margin:5px; box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.25);height:160px; overflow:auto">
