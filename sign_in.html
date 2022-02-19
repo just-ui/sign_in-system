@@ -26,7 +26,7 @@
         }
 
         .content {
-            margin-top: 200px;
+            margin-top: 150px;
         }
 
         .content .register {
@@ -40,16 +40,22 @@
             margin-left: 50px;
         }
 
-        .content .register .user_name {
+        .content .register .user_password {
             margin: 20px;
             margin-left: 50px;
         }
 
         .content .login-btn {
-            margin-left: 60px;
+            margin-left: 50px;
             text-align: center;
             background-color: rgb(128, 128, 128);
             color: rgba(220, 220, 220, 0.80);
+            box-shadow: 1px 1px 5px 5px rgba(255, 255, 255, 0.25);
+        }
+
+        .content .forget-password {
+            margin-left: 60px;
+            margin-top: 50px;
             box-shadow: 1px 1px 5px 5px rgba(255, 255, 255, 0.25);
         }
     </style>
@@ -75,7 +81,7 @@
                         <input type="number" class="username" placeholder="请输入">
                     </div>
                     <div>
-                        <label for="password" class="user_name">密码</label>
+                        <label for="password" class="user_password">密码</label>
                         <input type="password" class="password" placeholder="请输入">
                     </div>
                 </div>
@@ -83,6 +89,37 @@
                     <button class="btn btn-lg login-btn" href="#">
                         <span class="glyphicon glyphicon-log-in"></span> 登录
                     </button>
+                </div>
+                <div class="col-sm-3 col-sm-offset-5">
+                    <button class="btn btn-sm forget-password" data-toggle="modal" data-target="#forgetpwModal">
+                        忘记密码
+                    </button>
+                </div>
+                <div class="modal fade" id="forgetpwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                                <h5 class="modal-title" id="myModalLabel">找回密码</h5>
+                            </div>
+                            <div class="modal-body">
+                                <label for="username" class="user_number">学号</label>
+                                <input type="number" class="username" placeholder="请输入学号">
+                                <p>
+                                    请输入您的学号后，点击<b>确定提交</b>按钮,务必确保您学号的正确性！
+                                </p>
+                                <p>
+                                    密码将通过邮件的形式发送到您的<b>登记邮箱</b>，请登录后前往<b>信息空间</b>更改您的密码！
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary">确定提交</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
